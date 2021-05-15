@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Visor de Álbumes - Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">¡Bienvenido!</h1>
+    <p>Seleccione un álbum para visualizar sus fotografías.</p>
+    
+    <div class="row">
+        <div class="col-md-6">
+            @Html.DropDownList("AlbumId",
+                new SelectList(Model, "Id", "Title"), new { Class = "form-control" } )
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-success btn-block" id="btnVerAlbum">Visualizar Álbum </a>
+        </div>
+       
+    </div>
+    <br />
+    <div id="photosTable">
+        
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="/js/Index.js"></script>
+}

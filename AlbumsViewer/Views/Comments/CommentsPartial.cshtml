@@ -1,0 +1,11 @@
+﻿@model PhotoCommentsViewModel
+@{
+    Layout = null;
+}
+
+@foreach (var comment in Model.Comments)
+{
+    <li>
+        <b>@comment.Name</b> - @comment.Body <i>(@comment.Email)</i>
+    </li>
+}

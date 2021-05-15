@@ -1,0 +1,29 @@
+﻿@model AlbumPhotosViewModel
+@{
+    Layout = null;
+}
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Foto</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var photo in Model.Photos)
+        {
+            <tr id="@($"photo{photo.Id}")">
+                <td>@photo.Title</td>
+                <td><img height="300" width="300" alt="@(photo.ThumbnailUrl)" src="@(photo.Url)"></td>
+                <td><a class="btn btn-info" onclick="viewComments(@(photo.Id), @($"photo{photo.Id}"))">Ver Comentarios</a></td>
+            </tr>
+            <tr id="rowComments@(photo.Id)" style="display: none">
+                <td colspan="3">
+                    <ul id="commentsPhoto@(photo.Id)"></ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
